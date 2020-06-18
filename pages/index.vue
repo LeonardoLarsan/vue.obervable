@@ -7,6 +7,7 @@
       </div>
       <v-card>
         <h1>{{getUser.pass}}</h1>
+        <h1>{{getPass}}</h1>
         <v-card-title class="headline">Welcome to the Vuetify + Nuxt.js template</v-card-title>
         <v-card-text>
           <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
@@ -58,7 +59,7 @@ import Vue from "vue";
 import Logo from "~/components/Logo.vue";
 import VuetifyLogo from "~/components/VuetifyLogo.vue";
 
-import { state, actions } from "@/store/user.store";
+import { state, actions, getters } from "@/store/user.store";
 
 interface IPepe {
   id: string,
@@ -76,6 +77,9 @@ export default Vue.extend({
   computed: {
     getUser() {
       return state;
+    },
+    getPass() {
+      return getters.password()
     }
   },
   created() {

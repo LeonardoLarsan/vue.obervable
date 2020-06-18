@@ -21,6 +21,12 @@ const state = Vue.observable<IState>({
   pass: '1'
 })
 
+const getters = {
+  password() {
+    return state.pass
+  }
+}
+
 const mutators = {
   setUser(user: IState) {
     state.pass = user.pass
@@ -41,4 +47,4 @@ const services = {
   }
 }
 
-export { state, actions }
+export { state, actions, getters }
